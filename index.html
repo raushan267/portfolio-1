@@ -296,19 +296,6 @@
   flex: 1;
   text-align: right;
 }
-
-.hero-image img {
-  max-width: 320px;
-  border-radius: 50%;
-  border: 5px solid #ffffff;
-  box-shadow: 0px 6px 20px rgba(0,0,0,0.3);
-  transition: transform 0.3s;
-}
-
-.hero-image img:hover {
-  transform: scale(1.05);
-}
-
   </style>
 </head>
 <body>
@@ -330,22 +317,28 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="hero">
-    <h2>Hello, I'm Raushan Kumar Gupta</h2>
-    <p id="typewriter">Junior Data Analytics | Python | Tableau | Frontend Developer </p>
-    <a href="C:\Users\raush\OneDrive\Documents\All Resume\RaushanDA (3).pdf" class="btn">Download Resume</a>
+<section id="home" class="hero">
+  <h2>Hello, I'm <span style="color:#0077ff;">Raushan Kumar Gupta</span></h2>
 
-    <!-- Right Side: Image -->
-    <div class="hero-image">
-      <img src="our pic .jpg" alt="Raushan Kumar Gupta">
-    </div>
-  </section>
+  <!-- description properly below h2 -->
+  <p id="typewriter" style="margin-top:10px; font-size:18px; color:#f1f1f1;">
+    Junior Data Analytics | Python | Tableau | Power BI | Frontend Developer
+  </p>
+
+  <!-- Resume button -->
+  <a href="C:\Users\raush\OneDrive\Documents\All Resume\RaushanDA (3).pdf" 
+     class="btn" 
+     style="display:inline-block; margin-top:20px; padding:12px 24px; background:#ffffff; color:#333; border-radius:30px; font-weight:600; text-decoration:none;">
+     Download Resume
+  </a>
+</section>
 
   <!-- About Section -->
   <section id="about" class="about">
     <h2 class="section-title">About Me</h2>
     <p>
-      I'm a passionate Junior Data Analytics professional with expertise in Python, Excel, SQL, and data visualization tools like Tableau and Power BI. I have hands-on experience building real-time job portals, data dashboards, and visualization tools. My goal is to leverage data to drive insights and create impactful solutions.
+      I'm a passionate Junior Data Analytics professional with expertise in Python, Excel, SQL, and data visualization tools like Tableau and Power BI. 
+      I have hands-on experience building real-time job portals, data dashboards, and visualization tools. My goal is to leverage data to drive insights and create impactful solutions.
     </p>
   </section>
 
