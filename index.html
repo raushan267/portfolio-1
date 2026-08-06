@@ -3,845 +3,1296 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raushan Kumar Gupta - Portfolio</title>
+  <title>Raushan Kumar Gupta - Data Analyst Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Arial', sans-serif;
     }
 
     body {
-      background-color: #1a1a1a;
-      color: #ffffff;
-      position: relative;
-      overflow-x: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
     }
 
-    #particle-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 0.85;
-    }
-
-
+    /* ==================== NAVIGATION ==================== */
     nav {
-      background-color: rgba(44, 62, 80, 0.9);
-      padding: 1rem 2rem;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
     }
 
     .nav-container {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .nav-container h1 {
-      font-size: 1.8rem;
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 700;
+      color: #0d47a1;
+      font-size: 1.3rem;
+    }
+
+    .nav-logo-circle {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
     }
 
     .nav-links a {
-      color: #ffffff;
       text-decoration: none;
-      margin-left: 1.5rem;
-      font-size: 1.1rem;
-      transition: color 0.3s;
+      color: #555;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
     }
 
     .nav-links a:hover {
-      color: #3498db;
+      color: #0d47a1;
     }
 
-    section {
-      padding: 4rem 2rem;
-      position: relative;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(44, 62, 80, 0.8));
-      text-align: center;
-      padding: 6rem 2rem;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      display: inline-block;
-      min-height: 1.5em;
-    }
-
-    .btn {
-      background-color: #ffffff;
-      color: #2c3e50;
-      padding: 0.8rem 1.5rem;
-      border-radius: 25px;
+    .nav-resume-btn {
+      background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 6px;
       text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .btn:hover {
-      background-color: #3498db;
-      color: #ffffff;
+    .nav-resume-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(13, 71, 161, 0.3);
     }
 
-    .section-title {
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
-      color: #3498db;
-    }
-
-    .about, .contact {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .about p, .contact p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #cccccc;
-    }
-
-    .projects, .experience, .skills {
-      background-color: rgba(44, 62, 80, 0.9);
-    }
-
-    .project-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .project-card {
-      background-color: #34495e;
-      padding: 1.5rem;
-      border-radius: 10px;
-      transition: transform 0.3s, box-shadow 0.3s;
+    /* ==================== HERO SECTION ==================== */
+    .hero {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 4rem 2rem;
       position: relative;
       overflow: hidden;
     }
 
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.5);
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: rgba(13, 71, 161, 0.05);
+      border-radius: 50%;
+      z-index: 0;
     }
 
-    .project-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-card p {
-      color: #cccccc;
-      font-size: 1rem;
-    }
-
-    .skills-grid {
-      max-width: 800px;
+    .hero-container {
+      max-width: 1300px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h2 {
+      color: #0d47a1;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .hero-content h1 .highlight {
+      color: #0d47a1;
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      color: #666;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(13, 71, 161, 0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #0d47a1;
+      padding: 0.85rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid #0d47a1;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background: #0d47a1;
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .social-links a {
+      color: #0d47a1;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #1565c0;
+      transform: translateY(-3px);
+    }
+
+    .hero-image {
+      position: relative;
+      text-align: right;
+    }
+
+    .hero-image img {
+      width: 350px;
+      height: 350px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 20px 50px rgba(13, 71, 161, 0.2);
+      border: 6px solid white;
+    }
+
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0d47a1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: #999;
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+
+    /* ==================== TECH STACK ==================== */
+    .tech-stack {
+      padding: 3rem 2rem;
+      background: white;
+    }
+
+    .tech-stack-container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .tech-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: #f8f9fa;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tech-item:hover {
+      background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+      color: white;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(13, 71, 161, 0.2);
+    }
+
+    .tech-icon {
+      font-size: 2.5rem;
+      color: #0d47a1;
+    }
+
+    .tech-item:hover .tech-icon {
+      color: white;
+    }
+
+    .tech-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    /* ==================== PROJECTS SECTION ==================== */
+    .projects-section {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .projects-container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
     }
 
-    .skills ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-      color: #cccccc;
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
-    .skills ul li {
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(13, 71, 161, 0.15);
     }
 
-    .experience ul, .certifications ul {
-      max-width: 800px;
-      margin: 0 auto;
-      list-style: disc;
-      padding-left: 1.5rem;
-      color: #cccccc;
+    .project-image {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
     }
 
-    .experience ul li, .certifications ul li {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
+    .project-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
-    .contact a {
-      color: #3498db;
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-description {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex: 1;
+      line-height: 1.6;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      background: #e8eef7;
+      color: #0d47a1;
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .project-buttons {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .project-btn {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      border: 2px solid #0d47a1;
+      background: white;
+      color: #0d47a1;
+      border-radius: 6px;
       text-decoration: none;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background-color: rgba(44, 62, 80, 0.9);
       text-align: center;
-      padding: 1rem;
-      color: #cccccc;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-btn:hover {
+      background: #0d47a1;
+      color: white;
+    }
+
+    .view-all-btn {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .view-all-btn .btn-primary {
+      padding: 1rem 2.5rem;
+    }
+
+    /* ==================== ABOUT SECTION ==================== */
+    .about-section {
+      padding: 4rem 2rem;
+      background: white;
+    }
+
+    .about-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-content h3 {
+      color: #0d47a1;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .about-content h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .about-text {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .skills-section {
+      margin-top: 2rem;
+    }
+
+    .skill-category h4 {
+      color: #1a1a1a;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-badge {
+      background: #e8eef7;
+      color: #0d47a1;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* ==================== EXPERIENCE/INTERNSHIP ==================== */
+    .experience-section {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+
+    .experience-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .experience-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      border-left: 5px solid #0d47a1;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .experience-item:hover {
+      box-shadow: 0 8px 25px rgba(13, 71, 161, 0.15);
+      transform: translateX(5px);
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 0.8rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .experience-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0d47a1;
+    }
+
+    .experience-date {
+      background: #e8eef7;
+      color: #0d47a1;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .experience-company {
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-location {
+      color: #999;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .experience-description {
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .experience-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .experience-list li {
+      color: #666;
+      margin-bottom: 0.6rem;
+      padding-left: 1.5rem;
       position: relative;
     }
 
-    .social-icons {
-      margin-top: 0.5rem;
+    .experience-list li:before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #0d47a1;
+      font-weight: bold;
     }
 
-    .social-icons a {
-      color: #ffffff;
-      text-decoration: none;
-      margin: 0 0.5rem;
-      font-size: 1.2rem;
-      transition: color 0.3s;
+    /* ==================== CERTIFICATIONS ==================== */
+    .certifications-section {
+      padding: 4rem 2rem;
+      background: white;
     }
 
-    .social-icons a:hover {
-      color: #3498db;
+    .certifications-container {
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    #back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #3498db;
-      color: #ffffff;
-      padding: 0.8rem 1.2rem;
-      border-radius: 50%;
-      text-decoration: none;
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .certification-card {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8eef7 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #0d47a1;
+      transition: all 0.3s ease;
+    }
+
+    .certification-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(13, 71, 161, 0.15);
+    }
+
+    .cert-icon {
+      font-size: 2rem;
+      color: #0d47a1;
+      margin-bottom: 0.8rem;
+    }
+
+    .cert-name {
+      font-weight: 700;
+      color: #1a1a1a;
       font-size: 1rem;
-      display: none;
-      z-index: 100;
-      transition: opacity 0.3s, transform 0.3s;
+      margin-bottom: 0.3rem;
     }
 
-    #back-to-top:hover {
-      transform: scale(1.1);
+    .cert-issuer {
+      color: #999;
+      font-size: 0.85rem;
     }
 
+    /* ==================== CONTACT SECTION ==================== */
+    .contact-section {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+      color: white;
+    }
+
+    .contact-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-section .section-title {
+      color: white;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-item {
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-item-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-item-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-item a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: white;
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      background: #0d3a5c;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* ==================== RESPONSIVE ==================== */
     @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
-        gap: 1rem;
+      .nav-links {
+        display: none;
       }
 
-      .nav-links a {
-        margin: 0 0.5rem;
+      .hero-container {
+        grid-template-columns: 1fr;
       }
 
-      .hero h2 {
+      .hero-content h1 {
         font-size: 2rem;
       }
 
-      .skills-grid {
+      .hero-image {
+        text-align: center;
+      }
+
+      .hero-image img {
+        width: 250px;
+        height: 250px;
+      }
+
+      .about-container {
         grid-template-columns: 1fr;
       }
+
+      .profile-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 1rem;
+      }
+
+      .tech-item {
+        padding: 1rem;
+      }
+
+      .tech-icon {
+        font-size: 2rem;
+      }
+
+      .tech-name {
+        font-size: 0.8rem;
+      }
     }
-
-
-    .hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 6rem 10%;
-  background: linear-gradient(135deg, rgba(52,152,219,0.8), rgba(44,62,80,0.8));
-}
-
-.hero-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  width: 100%;
-  gap: 50px;
-}
-
-.hero-text {
-  flex: 1;
-  text-align: left;
-}
-
-.hero-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero-text p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.hero-image {
-  flex: 1;
-  text-align: right;
-}
-    .internship-section {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.internship-card {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  background-color:hsl(180, 92%, 59%);
-}
-
-.internship-card h3 {
-  color: #2c3e50;
-  margin-bottom: 5px;
-}
-
-.internship-card ul {
-  padding-left: 20px;
-}
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:hsl(120 98% 0%);
-}
-
-.hero-container {
-  display: flex;
-  align-items: center;
-  gap: 50px;
-  max-width: 1100px;
-  padding: 40px;
-}
-
-.hero-image img {
-  width: 400px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 6px solid #990bac;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  background-color:#08f1e6;
-}
-
-.hero-content h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-  color: #222;
-}
-
-.hero-content h3 {
-  font-size: 22px;
-  color: #0077b6;
-  margin-bottom: 15px;
-}
-
-.hero-content p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
-  max-width: 500px;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-   .project-buttons{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.btn,
-.dashboard-btn{
-    padding: 10px 22px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.dashboard-btn{
-    background: #007bff;
-    color: white;
-}
-
   </style>
 </head>
 <body>
-  <!-- Particle Canvas -->
-  <canvas id="particle-canvas"></canvas>
 
-  <!-- Navbar -->
+  <!-- NAVIGATION -->
   <nav>
     <div class="nav-container">
-      <h1>Raushan Kumar Gupta</h1>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+      <div class="nav-logo">
+        <div class="nav-logo-circle">RK</div>
+        <span>Raushan Kumar Gupta</span>
       </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="https://drive.google.com/drive/folders/1s7vVvSWIMrAStlI0S4PqByxemTpqdMDj" target="_blank" class="nav-resume-btn">
+        <i class="fas fa-download"></i> Resume
+      </a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-<section id="home" class="hero">
-  <div class="hero-container">
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h2>DATA ANALYST</h2>
+        <h1>Turning Data Into <span class="highlight">Insights & Impact</span></h1>
+        <p class="hero-description">
+         Junior Data Analyst 1+ Year of Hands-on Experience cleaning and standardizing large datasets (4,000–10,00,000+ records) and
+         building interactive dashboards in Tableau, Power BI, and Excel. Skilled in Python (Pandas, NumPy), Excel functions, pivot tables, and
+         data visualization. Proven track record of automating reporting workflows, improving data accuracy by up to 30%, and reducing
+         processing time by 35%. Actively strengthening SQL skills and pursuing IIT Indore certification in Data Science and AI.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-primary">View My Projects</a>
+          <a href="https://drive.google.com/drive/folders/1s7vVvSWIMrAStlI0S4PqByxemTpqdMDj" target="_blank" class="btn-secondary">
+            <i class="fas fa-download"></i> Download Resume
+          </a>
+        </div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/raushan-kumar-gupta-132980284" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/raushan267" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:raushankumargupta454560@gmail.com" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
 
-    <div class="hero-content">
-      <h1>Hello, I'm 
-        <span style="color:hsl(212,90%,70%);">
-          Raushan Kumar Gupta
-        </span>
-      </h1>
-
-      <h3 id="typewriter">
-        Junior Data Analytics Engineer
-      </h3>
-
-      <a href="https://drive.google.com/drive/folders/1s7vVvSWIMrAStlI0S4PqByxemTpqdMDj"
-         class="btn" target="_blank">
-         Download Resume
-      </a>
+      <div class="hero-image">
+        <img src="https://github.com/raushan267/portfolio-1/blob/main/Perfosseional%20pic.png?raw=True" alt="Raushan Kumar Gupta">
+        <div class="profile-stats">
+          <div class="stat">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">SQL Queries</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">5M+</div>
+            <div class="stat-label">Data Rows Analyzed</div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="hero-image">
-      <img src="https://github.com/raushan267/portfolio-1/blob/main/professional%20photo.png?raw=True">
-    </div>
-
-  </div>
-</section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2 class="section-title">About Me</h2>
-    <p>
-   Junior Data Analyst 1+ Year of Hands-on Experience cleaning and standardizing large datasets (4,000–10,00,000+ records) and
-   building interactive dashboards in Tableau, Power BI, and Excel. Skilled in Python (Pandas, NumPy), Excel functions, pivot tables, and
-   data visualization. Proven track record of automating reporting workflows, improving data accuracy by up to 30%, and reducing
-   processing time by 35%. Actively strengthening SQL skills and pursuing IIT Indore certification in Data Science and AI.
-    </p>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="project-grid">
-    <div class="project-card">
-     <h3>Community Rehabilitation Data Analytics</h3>
-      <p>
-        Worked as a Data Analyst on a government-supported NGO project focused on community welfare programs in New Delhi district.
-        Analyzed 5000+ beneficiary records using Excel to perform data cleaning, trend analysis, and dashboard creation.
-       Generated insights and reports to support program monitoring and data-driven decision-making.
+  <!-- TECH STACK SECTION -->
+  <section id="skills" class="tech-stack">
+    <div class="tech-stack-container">
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <i class="fas fa-database tech-icon"></i>
+          <span class="tech-name">SQL Server</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-leaf tech-icon"></i>
+          <span class="tech-name">MySQL</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-table tech-icon"></i>
+          <span class="tech-name">Excel</span>
+        </div>
+        <div class="tech-item">
+          <svg class="tech-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 0h24v24H0z" fill="none"/><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+            <rect x="7" y="7" width="10" height="2" fill="currentColor"/>
+            <rect x="7" y="11" width="10" height="2" fill="currentColor"/>
+            <rect x="7" y="15" width="4" height="2" fill="currentColor"/>
+          </svg>
+          <span class="tech-name">Power BI</span>
+        </div>
+        <div class="tech-item">
+          <i class="fab fa-python tech-icon"></i>
+          <span class="tech-name">Python</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-cube tech-icon"></i>
+          <span class="tech-name">Pandas</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-cube tech-icon"></i>
+          <span class="tech-name">NumPy</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-chart-line tech-icon"></i>
+          <span class="tech-name">Tableau</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="projects-section">
+    <div class="projects-container">
+      <h2 class="section-title">Featured Projects</h2>
+      
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Community Rehabilitation Data Analytics</h3>
+            <p class="project-description">
+              Worked as a Data Analyst on a government-supported NGO project focused on community welfare programs in New Delhi district. Analyzed 5000+ beneficiary records using Excel to perform data cleaning, trend analysis, and dashboard creation.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Excel</span>
+              <span class="tag">Data Cleaning</span>
+              <span class="tag">Dashboard</span>
+            </div>
+            <div class="project-buttons">
+              <a href="https://github.com/raushan267" target="_blank" class="project-btn">Code</a>
+              <a href="#" target="_blank" class="project-btn">Dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Job Market Analysis & Opportunity Prediction</h3>
+            <p class="project-description">
+              Collaborated in a team-based project to analyze 100,000+ global job market records. Identified employment trends, in-demand skills, and salary patterns. Performed data cleaning, preprocessing, and exploratory data analysis using Excel and Python.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Excel</span>
+              <span class="tag">EDA</span>
+            </div>
+            <div class="project-buttons">
+              <a href="https://github.com/raushan267/Job-Market-Analysis-Opportunity-Predictionsis.git" target="_blank" class="project-btn">Code</a>
+              <a href="#" target="_blank" class="project-btn">Dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Job Portal Analytics</h3>
+            <p class="project-description">
+              Performed global job market analysis using job portal datasets to study employment trends and salary distributions. Cleaned and analyzed data using Excel to identify skill requirements and job roles. Created dashboards in Tableau for real-time insights.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Excel</span>
+              <span class="tag">Tableau</span>
+              <span class="tag">Analysis</span>
+            </div>
+            <div class="project-buttons">
+              <a href="https://github.com/raushan267" target="_blank" class="project-btn">Code</a>
+              <a href="#" target="_blank" class="project-btn">Dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-virus"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">COVID-19 Data Analysis</h3>
+            <p class="project-description">
+              Conducted comprehensive COVID-19 data analysis using real-world datasets to study infection trends, recovery rates, and regional impact patterns. Performed data cleaning and exploratory data analysis using Excel to transform raw data into meaningful insights.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Excel</span>
+              <span class="tag">Data Visualization</span>
+              <span class="tag">Analysis</span>
+            </div>
+            <div class="project-buttons">
+              <a href="https://github.com/raushan267" target="_blank" class="project-btn">Code</a>
+              <a href="#" target="_blank" class="project-btn">Dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">IPL Winner Prediction</h3>
+            <p class="project-description">
+              Developed an IPL Winner Prediction project by analyzing historical match data using Excel. Performed data cleaning, visualization, and dashboard creation to identify team performance trends and generate prediction-based insights for cricket analytics.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Excel</span>
+              <span class="tag">Prediction</span>
+              <span class="tag">Dashboard</span>
+            </div>
+            <div class="project-buttons">
+              <a href="https://github.com/raushan267" target="_blank" class="project-btn">Code</a>
+              <a href="#" target="_blank" class="project-btn">Dashboard</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Personal Portfolio Website</h3>
+            <p class="project-description">
+              Built a responsive personal portfolio website to present projects, technical skills, and real-world data analytics experience in a professional and interactive format. Designed and developed using HTML, CSS, and JavaScript for optimal user experience.
+            </p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <div class="project-buttons">
+              <a href="https://github.com/raushan267" target="_blank" class="project-btn">Code</a>
+              <a href="#" target="_blank" class="project-btn">View Live</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="view-all-btn">
+        <a href="https://github.com/raushan267" target="_blank" class="btn-primary">View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div>
+        <h3>Who I Am</h3>
+        <h2>Data Analyst & Problem Solver</h2>
+        <p class="about-text">
+          I'm a dedicated Data Analyst with 8 months of hands-on experience transforming complex data into actionable insights. My expertise lies in SQL, Python, Excel, and Tableau, where I specialize in data cleaning, exploratory analysis, and dashboard creation.
+        </p>
+        <p class="about-text">
+          I'm passionate about solving real-world problems using data and continuously enhancing my skills to deliver impactful results for businesses. Currently working as a Data Analyst & MIS Intern at KHMSKS NGO, analyzing 5000+ beneficiary records for community welfare programs.
+        </p>
+        
+        <div class="skills-section">
+          <div class="skill-category">
+            <h4>Core Competencies</h4>
+            <div class="skill-list">
+              <span class="skill-badge">Data Cleaning</span>
+              <span class="skill-badge">EDA</span>
+              <span class="skill-badge">SQL Queries</span>
+              <span class="skill-badge">Data Visualization</span>
+              <span class="skill-badge">Dashboard Creation</span>
+              <span class="skill-badge">Statistical Analysis</span>
+              <span class="skill-badge">Reporting</span>
+              <span class="skill-badge">Problem Solving</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3>&nbsp;</h3>
+        <h2>My Toolkit</h2>
+        <div class="skills-section">
+          <div class="skill-category">
+            <h4>Languages & Databases</h4>
+            <div class="skill-list">
+              <span class="skill-badge">Python</span>
+              <span class="skill-badge">SQL (MySQL)</span>
+              <span class="skill-badge">Advanced Excel</span>
+              <span class="skill-badge">PowerPoint</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4>Libraries & Frameworks</h4>
+            <div class="skill-list">
+              <span class="skill-badge">Pandas</span>
+              <span class="skill-badge">NumPy</span>
+              <span class="skill-badge">Matplotlib</span>
+              <span class="skill-badge">Seaborn</span>
+              <span class="skill-badge">Scikit-learn</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4>Visualization & BI Tools</h4>
+            <div class="skill-list">
+              <span class="skill-badge">Tableau</span>
+              <span class="skill-badge">Power BI</span>
+              <span class="skill-badge">Excel Dashboards</span>
+              <span class="skill-badge">Data Studio</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4>Web & Development</h4>
+            <div class="skill-list">
+              <span class="skill-badge">HTML</span>
+              <span class="skill-badge">CSS</span>
+              <span class="skill-badge">JavaScript</span>
+              <span class="skill-badge">Jupyter Notebook</span>
+              <span class="skill-badge">GitHub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE SECTION -->
+  <section id="experience" class="experience-section">
+    <div class="experience-container">
+      <h2 class="section-title">Experience & Internships</h2>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <div>
+            <div class="experience-title">Data Analyst & MIS Intern</div>
+            <div class="experience-company">Kastruba Hemalta Mahila Samaj Kalyan Santhan (Govt. of India NGO)</div>
+            <div class="experience-location"><i class="fas fa-map-marker-alt"></i> New Delhi</div>
+          </div>
+          <span class="experience-date">Sep 2025 - Present (Full-time)</span>
+        </div>
+        <ul class="experience-list">
+          <li>Analyzed 5,000+ rehabilitation records for New Delhi district NGO using Excel</li>
+          <li>Performed comprehensive data cleaning and preprocessing</li>
+          <li>Created interactive dashboards to track recovery and participation trends</li>
+          <li>Generated analytical reports for data-driven program decision-making</li>
+          <li>Supported awareness and rehabilitation monitoring through data insights</li>
+          <li>Implemented ML models for prediction and classification tasks</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <div>
+            <div class="experience-title">Data Analytics Intern</div>
+            <div class="experience-company">NULL Class Pvt. Ltd.</div>
+            <div class="experience-location"><i class="fas fa-map-marker-alt"></i> Tirupati</div>
+          </div>
+          <span class="experience-date">Jan 2025 - Mar 2025</span>
+        </div>
+        <ul class="experience-list">
+          <li>Completed intensive data analytics training program</li>
+          <li>Worked with data cleaning, transformation, and visualization techniques</li>
+          <li>Used Excel, Python, SQL, and Tableau for comprehensive analysis</li>
+          <li>Successfully completed 5+ analytics projects with real-world datasets</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="experience-header">
+          <div>
+            <div class="experience-title">AI/ML/Data Science Intern</div>
+            <div class="experience-company">IIDT – Blackbucks</div>
+            <div class="experience-location"><i class="fas fa-map-marker-alt"></i> Tirupati</div>
+          </div>
+          <span class="experience-date">Jul 2024 - Aug 2024</span>
+        </div>
+        <ul class="experience-list">
+          <li>Completed comprehensive AI, Machine Learning & Data Science internship</li>
+          <li>Worked with real-world datasets for preprocessing and analysis</li>
+          <li>Implemented ML models for prediction and classification</li>
+          <li>Completed all assigned projects successfully within timeline</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS SECTION -->
+  <section class="certifications-section">
+    <div class="certifications-container">
+      <h2 class="section-title">Certifications & Training</h2>
+      
+      <div class="certifications-grid">
+        <div class="certification-card">
+          <div class="cert-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="cert-name">Data Science & AI</div>
+          <div class="cert-issuer">IIT Indore (with Intelipeet)</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="cert-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="cert-name">Data Analytics with Python</div>
+          <div class="cert-issuer">L&T Edutech</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="cert-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="cert-name">SQL for Data Science</div>
+          <div class="cert-issuer">Udemy</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="cert-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="cert-name">Data Visualization with R</div>
+          <div class="cert-issuer">EdX</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="cert-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="cert-name">Power BI Learning</div>
+          <div class="cert-issuer">PrepInsta</div>
+        </div>
+
+        <div class="certification-card">
+          <div class="cert-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="cert-name">Student Volunteer</div>
+          <div class="cert-issuer">College Performances</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2 class="section-title">Get In Touch</h2>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-item-title">Email</div>
+          <a href="mailto:raushankumargupta454560@gmail.com">raushankumargupta454560@gmail.com</a>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-item-title">Phone</div>
+          <a href="tel:+917668528473">+91-7668528473</a>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <i class="fab fa-linkedin"></i>
+          </div>
+          <div class="contact-item-title">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/raushan-kumar-gupta-132980284" target="_blank">Connect with me</a>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="contact-item-title">GitHub</div>
+          <a href="https://github.com/raushan267" target="_blank">github.com/raushan267</a>
+        </div>
+      </div>
+
+      <p style="margin-top: 2rem; font-size: 0.95rem;">
+        I'm always interested in hearing about new opportunities and interesting projects. Feel free to reach out!
       </p>
-      <div class="project-buttons">
-
-      <a href="https://github.com/raushan267/Job-Market-Analysis-Opportunity-Predictionsis.git" class="btn"
-   target="_blank"
-   style="display:block; width:fit-content; center:20 px auto"> Code</a>
-      <a href="dashboard/covid-dashboard.html"
-            target="_blank"  class="dashboard-btn">  Dashboard  </a>
-      </div>
-      
-    </div>
-
-    
-     <div class="project-card">
-  <h3>Job Market Analysis & Opportunity Prediction</h3>
-  
-  <p>
-    Collaborated in a team-based data analytics project to analyze over 100,000+
-    global job market records and identify employment trends, in-demand skills,
-    and salary patterns across industries and regions. Performed ta cleaning,
-    preprocessing, and exploratory data analysis using Excel and Python to
-    transform large datasets into meaningful insights. Developed visual dashboards
-    and analytical reports to support data-driven job opportunity prediction and
-    career market understanding.
-  </p>
-
-  <p><strong>Role:</strong> Data Analyst (Team Project)</p>
-  <p><strong>Dataset Size:</strong> 100,000+ Records</p>
-  <p><strong>Tools:</strong> Excel, Python, Data Visualization</p>
-  <p><strong>Techniques:</strong> Data Cleaning, EDA, Trend Analysis, Prediction Analysis</p>
-  <p><strong>Domain:</strong> Global Job Market Analytics</p>
-    <div class="project-buttons">
-   
-   <a href="https://github.com/raushan267/Job-Market-Analysis-Opportunity-Predictionsis.git" class="btn"
-   target="_blank"
-   style="display:block; width:fit-content; center:20 px auto"> Code</a>
-       <a href="dashboard/covid-dashboard.html" target="_blank" class="dashboard-btn"> Dashboard </a>
-    </div>
- </div>
-      
-      <div class="project-card">
-        <h3>Job Portal Analytics</h3>
-        <p> Performed global job market analysis using job portal datasets to study
-            employment trends, salary distributions, and industry demand across
-            different countries. Cleaned and analyzed data using Excel to identify
-            skill requirements, job roles, and salary patterns. Created dashboards
-            and visual reports to generate insights into worldwide hiring trends
-            and career opportunities.Cleaned and analyzed job data in Jupyter, 
-            removed null values, and created dashboards in Tableau for real-time insights.
-        </p>
-        <div class="project-buttons">
-
-        <a href="####" class="btn"
-   target="_blank"
-   style="display:block; width:fit-content; center:20 px auto"> Code</a>
-        <a href="dashboard/covid-dashboard.html" target="_blank"class="dashboard-btn"> Dashboard  </a>
-        </div>
-        
-      </div>
-
-      
-      <div class="project-card">
-        <h3>COVID-19 Data Analysis</h3>
-        <p>Conducted comprehensive COVID-19 data analysis using real-world datasets to
-           study infection trends, recovery rates, and regional impact patterns.
-           Performed data cleaning, preprocessing, and exploratory data analysis using Excel
-           to transform raw data into meaningful insights. Developed interactive dashboards
-           and visual reports to track case growth, compare regional statistics, and support
-           data-driven understanding of pandemic trends.Used Excel to clean data, remove null values, 
-           and build a dashboard to visualize pandemic trends.
-        </p>
-        <div class="project-buttons">
-
-        <a href="###" class="btn" target="_blank"
-   style="display:block; width:fit-content; center:20 px auto"> Code</a>
-    <a href="dashboard/covid-dashboard.html"target="_blank" class="dashboard-btn"> Dashboard </a>
-        </div>
-        
-    </div>
-
-      
-      <div class="project-card">
-        <h3>IPL Winner Prediction</h3>
-        <p>Developed an IPL Winner Prediction project by analyzing historical match data using Excel. 
-          Performed data cleaning, visualization, and dashboard creation to identify team performance
-          trends and generate prediction-based insights.Used Excel for data cleaning, visualization, 
-          and dashboard creation to analyze and predict IPL outcomes.
-        </p>
-        <div class="project-buttons">
-
-         <a href="###" class="btn" target="_blank"
-   style="display:block; width:fit-content; center:20 px auto"> Code</a>
-    <a href="dashboard/covid-dashboard.html"target="_blank" class="dashboard-btn"> Dashboard </a>
-        </div>
-        
-      </div>
-
-      <div class="project-card">
-        <a href="C:\Users\raush\OneDrive\Desktop\portofolio\portfolio\raushan.html" target="_blank" style="text-decoration: none; color: inherit;">
-        <h3>Personal Portfolio Website</h3>
-        <p>Built a responsive personal portfolio website to present my projects, technical skills, 
-          and real-world data analytics experience in a professional and interactive format.
-          Designed and developed a responsive personal portfolio using HTML, CSS, and Bootstrap to showcase profile and skills.
-        </p>
-        </a>
-        
-      </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="skills-grid">
-      <div>
-        <h3>Languages & Tools</h3>
-        <ul>
-          <li>Python</li>
-          <li>MySQL</li>
-          <li>Excel</li>
-          <li>PowerPoint</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Libraries & Technologies</h3>
-        <ul>
-          <li>Languages & Tools: Python, SQL (MySQL), Advanced Excel, PowerPoint.</li>
-          <li>Libraries: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn (Basic).</li>
-          <li>Visualization Tools: Tableau, Power BI, Excel Dashboards.</li>
-          <li>Core Data Analytics: Data Cleaning, Exploratory Data Analysis (EDA),
-              Statistical Analysis, Data Visualization, Dashboard Creation, 
-              ata Interpretation, Reporting & Insights Generation.</li>
-          <li>Machine Learning: Regression & Classification (Basic), Model Evaluation (Basic).</li>
-          <li>Web Development: HTML, CSS, JavaScript (Basic) </li>
-          <li>GitHub, Jupyter Notebook</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-   <!-- Experience Section --><section class="internship-section">
-  <h2>Internship Experience</h2>
-       <!-- Internship 1 -->
-<div class="internship-card">
-    <h3>Data Analyst & MIS  Intern</h3>
-    <p><strong>Company:</strong>Kastruba Hemalta Mahila Samaj Kalyan Santhan (Govt of India On NGO )</p>
-    <p><strong>Location:</strong> New Delhi </p>
-    <p><strong>Duration:</strong> September 2025 – Present(FULL TIME ) </p>
-    <p><strong>Description:</strong></p>
-    <ul>
-      <li>Analyzed 5000+ rehabilitation records for New Delhi district NGO.</li>
-      <li>Performed data cleaning and preprocessing using Excel.</li>
-      <li>Created dashboards to track recovery and participation trends.</li>
-      <li>Generated analytical reports for program decision-making.</li>
-      <li>Supported awareness and rehabilitation monitoring through data insights.</li>
-      <li>Worked on real-world datasets for data preprocessing and analysis.</li>
-      <li>Implemented ML models for prediction and classification.</li>
-      <li>Completed assigned projects successfully within the internship duration.</li>
-    </ul>
-  </div>
-  <!-- Internship 2 -->
-  <div class="internship-card">
-    <h3>AI / ML / Data Science Intern</h3>
-    <p><strong>Company:</strong> IIDT – Blackbucks</p>
-    <p><strong>Location:</strong> Tirupati</p>
-    <p><strong>Duration:</strong> July 2024 – August 2024</p>
-    <p><strong>Description:</strong></p>
-    <ul>
-      <li>Completed internship in Artificial Intelligence, Machine Learning, and Data Science.</li>
-      <li>Worked on real-world datasets for data preprocessing and analysis.</li>
-      <li>Implemented ML models for prediction and classification.</li>
-      <li>Completed assigned projects successfully within the internship duration.</li>
-    </ul>
-  </div>
-
-  <!-- Internship 3 -->
-  <div class="internship-card">
-    <h3>Data Analytics Intern</h3>
-    <p><strong>Company:</strong> NULL Class Pvt. Ltd.</p>
-    <p><strong>Location:</strong> Tirupati</p>
-    <p><strong>Duration:</strong> January 2025 – March 2025</p>
-    <p><strong>Description:</strong></p>
-    <ul>
-      <li>Completed internship focused on Data Analytics.</li>
-      <li>Worked with data cleaning, transformation, and visualization techniques.</li>
-      <li>Used tools like Excel, Python, SQL, and Tableau for analysis.</li>
-      <li>Successfully completed all assigned analytics projects.</li>
-    </ul>
-    
-  </div>
-  
-</section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="experience">
-    <h2 class="section-title">Experience</h2>
-    <ul>
-      <li><strong>KHMSKS In NGO (GOVT OF INDIA ) </strong> - Real Dataset working </li>
-      <li><strong>NULLCLASS</strong> - Data Analytics Intern</li>
-      <li><strong>IIDT Blackbucks</strong> - AI/ML/DS Intern</li>
-      <li><strong>Voltas, Techno Pvt. Ltd., Spark Minda</strong> - Industrial Experience</li>
-    </ul>
-  </section>
-
-  <!-- Certifications Section -->
-  <section id="certifications" class="certifications">
-    <h2 class="section-title">Certifications</h2>
-    <ul>
-      <li>Data Science & Artificial Intelligence - IIT INDORE(With Intelipeet)</li>
-      <li>Student Volunteer - College  Performences </li>
-      <li>Data Analytics with Python – L&T Edutech</li>
-      <li>SQL for Data Science – Udemy </li>
-      <li>Data Visualization with R – EdX</li>
-      <li>Learning in Power BI – Prepinsta</li>
-    </ul>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2 class="section-title">Get in Touch</h2>
-    <p>Email: <a href="mailto:raushankumargupta454560@gmail.com">raushankumargupta454560@gmail.com</a></p>
-    <p>Phone: <a href="tel:+917668528473">+91-7668528473</a></p>
-    <p>LinkedIn:<a href="www.linkedin.com/in/raushan-kumar-gupta-132980284">www.linkedin.com/in/raushan-kumar-gupta-132980284</a></p>
-    <p>GitHub: <a href="https://github.com/raushan267">github.com/raushan267</a></p>
-  </section>
-
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Raushan Kumar Gupta | All Rights Reserved</p>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/raushan-kumar-gupta-132980284" target="_blank">LinkedIn</a>
-      <a href="https://github.com/raushan267" target="_blank">GitHub</a>
-    </div>
+    <p>&copy; 2025 Raushan Kumar Gupta | All Rights Reserved | Data Analyst & Problem Solver</p>
   </footer>
 
-  <!-- Back to Top Button -->
-  <a href="#home" id="back-to-top">↑</a>
-
   <script>
-    // Smooth scrolling for nav links
+    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       });
     });
 
-    // Typewriter effect for hero subtitle
-    const typewriterText = "Junior Data Analytics | Python | Tableau | Web Developer";
-    let index = 0;
-    const typewriterElement = document.getElementById('typewriter');
-    function type() {
-      if (index < typewriterText.length) {
-        typewriterElement.textContent = typewriterText.slice(0, index + 1);
-        index++;
-        setTimeout(type, 100);
-      } else {
-        setTimeout(() => {
-          index = 0;
-          typewriterElement.textContent = '';
-          type();
-        }, 3000);
-      }
-    }
-    type();
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
 
-    // Back to top button visibility
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTop.style.display = 'block';
-        backToTop.style.opacity = '1';
-      } else {
-        backToTop.style.opacity = '0';
-        setTimeout(() => {
-          backToTop.style.display = 'none';
-        }, 300);
-      }
-    });
-
-    // Particle Animation with Connected Lines and Nebula Galaxy
-    const canvas = document.getElementById('particle-canvas');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particlesArray = [];
-    const numberOfParticles = 150;
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.brightness = Math.random() * 0.5 + 0.5;
-        this.color = Math.random() < 0.2 ? 'rgba(100, 200, 255, 0.8)' : // Light blue
-                    Math.random() < 0.4 ? 'rgba(255, 100, 200, 0.8)' : // Pink
-                    Math.random() < 0.6 ? 'rgba(150, 255, 150, 0.8)' : // Green
-                    'rgba(255, 255, 255, 0.8)'; // White
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.size > 0.2) this.size -= 0.005;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-        this.brightness = Math.random() * 0.5 + 0.5; // Twinkle effect
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = this.color;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      }
-    }
-
-    function createNebula() {
-      const gradient = ctx.createRadialGradient(
-        canvas.width / 2, canvas.height / 2, 0,
-        canvas.width / 2, canvas.height / 2, canvas.width / 1.5
-      );
-      gradient.addColorStop(0, 'rgba(30, 50, 100, 0.5)'); // Deep blue
-      gradient.addColorStop(0.2, 'rgba(150, 50, 150, 0.4)'); // Purple
-      gradient.addColorStop(0.4, 'rgba(50, 200, 150, 0.3)'); // Green
-      gradient.addColorStop(0.6, 'rgba(255, 100, 150, 0.3)'); // Pink
-      gradient.addColorStop(1, 'rgba(0, 0, 50, 0.1)'); // Dark blue
-
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
-
-    function init() {
-      for (let i = 0; i < numberOfParticles; i++) {
-        particlesArray.push(new Particle());
-      }
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      createNebula();
-      for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-        particlesArray[i].draw();
-      }
-      connectParticles();
-      requestAnimationFrame(animate);
-    }
-
-    function connectParticles() {
-      for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a + 1; b < particlesArray.length; b++) {
-          const dx = particlesArray[a].x - particlesArray[b].x;
-          const dy = particlesArray[a].y - particlesArray[b].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 120) {
-            ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / 120})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-            ctx.stroke();
-          }
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
         }
-      }
-    }
+      });
+    }, observerOptions);
 
-    init();
-    animate();
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      createNebula();
+    document.querySelectorAll('.project-card, .certification-card, .experience-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'all 0.6s ease';
+      observer.observe(el);
     });
   </script>
+
 </body>
 </html>
