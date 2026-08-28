@@ -432,207 +432,164 @@
     }
 
     /* ==================== ABOUT SECTION ==================== */
-   /* ===========================
-   ABOUT SECTION
-=========================== */
-
 .about-section{
     padding:100px 8%;
     background:#f8fbff;
 }
 
 .about-container{
-    max-width:1400px;
+    max-width:1300px;
     margin:auto;
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:380px 1fr;
     gap:70px;
     align-items:center;
 }
 
-/* LEFT IMAGE */
-
 .about-image{
     display:flex;
     justify-content:center;
-    align-items:center;
 }
 
 .about-image img{
-    width:380px;
-    max-width:100%;
+    width:350px;
     border-radius:20px;
-    object-fit:cover;
-    box-shadow:0 20px 50px rgba(0,0,0,.15);
-    transition:.4s;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
-
-.about-image img:hover{
-    transform:translateY(-10px);
-}
-
-/* RIGHT CONTENT */
 
 .about-content h3{
     color:#0d6efd;
-    font-size:18px;
+    text-transform:uppercase;
     letter-spacing:2px;
     margin-bottom:10px;
-    text-transform:uppercase;
 }
 
 .about-content h2{
-    font-size:42px;
-    font-weight:700;
-    color:#222;
+    font-size:45px;
     margin-bottom:20px;
 }
 
 .about-text{
     font-size:18px;
+    line-height:1.8;
     color:#555;
-    line-height:1.9;
-    margin-bottom:25px;
 }
 
-/* ===========================
-   CORE COMPETENCIES
-=========================== */
+/* ==========================
+BOTTOM
+========================== */
 
-.skills-section{
-    margin-top:40px;
+.about-bottom{
+    max-width:1300px;
+    margin:80px auto 0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:flex-start;
 }
 
-.skills-section h3{
-    text-align:center;
-    font-size:38px;
-    margin-bottom:40px;
-    color:#222;
-}
+/* ==========================
+HEADINGS
+========================== */
 
-.skill-category{
-    margin-bottom:35px;
-}
-
-.skill-category h4{
-    text-align:center;
-    font-size:25px;
-    margin-bottom:20px;
-    color:#222;
-}
-
-/* Badge Container */
-
-.skill-list{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:18px;
-}
-
-/* Badge */
-
-.skill-badge{
-    background:white;
-    color:#0d47a1;
-    border:2px solid #0d47a1;
-    padding:12px 24px;
-    border-radius:40px;
-    font-size:16px;
-    font-weight:600;
-    transition:.35s;
-    cursor:pointer;
-    box-shadow:0 10px 20px rgba(0,0,0,.05);
-}
-
-.skill-badge:hover{
-    background:#0d47a1;
-    color:#fff;
-    transform:translateY(-5px);
-}
-
-/* ===========================
-   MY TOOLKIT
-=========================== */
-
-.toolkit-section{
-    margin-top:60px;
-}
-
+.skills-section h3,
 .toolkit-section h2{
     text-align:center;
-    font-size:42px;
-    margin-bottom:45px;
-    color:#111;
-}
-
-.tool-category{
     margin-bottom:35px;
+    font-size:34px;
 }
 
+.skill-category,
+.tool-category{
+    margin-bottom:30px;
+}
+
+.skill-category h4,
 .tool-category h4{
     text-align:center;
     margin-bottom:18px;
-    font-size:22px;
-    color:#222;
 }
 
+/* ==========================
+BADGES
+========================== */
+
+.skill-list,
 .tool-list{
     display:flex;
     justify-content:center;
-    align-items:center;
     flex-wrap:wrap;
     gap:18px;
 }
 
+.skill-badge,
 .tool-badge{
-    padding:12px 25px;
-    border-radius:40px;
-    background:white;
-    color:#0d47a1;
+
+    padding:12px 22px;
+
     border:2px solid #0d47a1;
+
+    border-radius:35px;
+
+    background:#fff;
+
+    color:#0d47a1;
+
     font-weight:600;
+
     transition:.3s;
-    box-shadow:0 10px 20px rgba(0,0,0,.06);
+
 }
 
+.skill-badge:hover,
 .tool-badge:hover{
+
     background:#0d47a1;
+
     color:#fff;
-    transform:translateY(-5px);
+
+    transform:translateY(-4px);
+
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
+/* ==========================
+RESPONSIVE
+========================== */
 
 @media(max-width:991px){
 
 .about-container{
+
 grid-template-columns:1fr;
+
 text-align:center;
+
+}
+
+.about-bottom{
+
+grid-template-columns:1fr;
+
+gap:50px;
+
 }
 
 .about-image{
+
 order:-1;
-margin-bottom:30px;
+
 }
 
 .about-image img{
-width:300px;
+
+width:280px;
+
 }
 
 .about-content h2{
-font-size:34px;
-}
 
-.toolkit-section h2{
-font-size:34px;
-}
+font-size:35px;
 
-.skills-section h3{
-font-size:32px;
 }
 
 }
@@ -640,25 +597,35 @@ font-size:32px;
 @media(max-width:576px){
 
 .about-section{
-padding:70px 25px;
+
+padding:70px 20px;
+
 }
 
 .about-image img{
-width:250px;
+
+width:230px;
+
 }
 
 .about-content h2{
+
 font-size:28px;
+
 }
 
 .about-text{
+
 font-size:16px;
+
 }
 
 .skill-badge,
 .tool-badge{
-font-size:14px;
+
 padding:10px 18px;
+font-size:14px;
+
 }
 
 }
@@ -846,6 +813,34 @@ padding:10px 18px;
       text-decoration: none;
       transition: color 0.3s ease;
     }
+    .contact-item a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .contact-item-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-item-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .contact-item a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .contact-item-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-item-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
 
     .contact-item a:hover {
       color: white;
@@ -927,7 +922,7 @@ padding:10px 18px;
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="https://drive.google.com/drive/folders/1s7vVvSWIMrAStlI0S4PqByxemTpqdMDj" target="_blank" class="nav-resume-btn">
+      <a href="https://drive.google.com/file/d/1HCESY09Dr4FHi8HbuAgFATMsJGjoqOKT/view?usp=sharing" target="_blank" class="nav-resume-btn">
         <i class="fas fa-download"></i> Resume
       </a>
     </div>
@@ -946,7 +941,7 @@ padding:10px 18px;
         </p>
         <div class="hero-buttons">
           <a href="#projects" class="btn-primary">View My Projects</a>
-          <a href="https://drive.google.com/drive/folders/1s7vVvSWIMrAStlI0S4PqByxemTpqdMDj" target="_blank" class="btn-secondary">
+          <a href="https://drive.google.com/file/d/1HCESY09Dr4FHi8HbuAgFATMsJGjoqOKT/view?usp=sharing" target="_blank" class="btn-secondary">
             <i class="fas fa-download"></i> Download Resume
           </a>
         </div>
@@ -1196,97 +1191,153 @@ padding:10px 18px;
   </section>
 
   <!-- ABOUT SECTION -->
- <section id="about" class="about">
-    <div class="container">
+ <section id="about" class="about-section">
 
-        <div class="about-wrapper">
+<div class="about-container">
 
-            <!-- LEFT -->
-            <div class="about-image">
-                <img src="https://github.com/raushan267/portfolio-1/blob/main/professional%20photo.png?raw=true" alt="Raushan">
-            </div>
+    <!-- LEFT IMAGE -->
+    <div class="about-image">
+        <img src="https://github.com/raushan267/portfolio-1/blob/main/professional%20photo.png?raw=true" alt="Raushan">
+    </div>
 
-            <!-- RIGHT -->
-            <div class="about-content">
+    <!-- RIGHT CONTENT -->
+    <div class="about-content">
 
-                <h3>Who I Am</h3>
+        <h3>Who I Am</h3>
 
-                <h2>Data Analytics Engineer</h2>
+        <h2>Data Analytics Engineer</h2>
 
-                <p>
-                    Passionate Data Analytics Engineer with hands-on experience in SQL,
-                    Python, Power BI, Tableau, Excel, and Machine Learning.
-                </p>
+        <p class="about-text">
+            Passionate Data Analytics Engineer with hands-on experience in SQL,
+            Python, Power BI, Tableau, Excel and Machine Learning.
+        </p>
 
-                <p>
-                    Currently working at AfterShip where I analyze logistics data,
-                    build dashboards, automate reports and deliver business insights.
-                </p>
+        <p class="about-text">
+            Currently working at AfterShip where I analyze logistics data,
+            build dashboards, automate reports and deliver business insights.
+        </p>
 
-                <!-- Core Skills -->
+    </div>
 
-                <div class="skills-section">
-          <div class="skill-category">
-            <h4>Core Competencies</h4>
-            <div class="skill-list">
-              <span class="skill-badge">Data Cleaning</span>
-              <span class="skill-badge">EDA</span>
-              <span class="skill-badge">SQL Queries</span>
-              <span class="skill-badge">Data Visualization</span>
-              <span class="skill-badge">Dashboard Creation</span>
-              <span class="skill-badge">Statistical Analysis</span>
-              <span class="skill-badge">Reporting</span>
-              <span class="skill-badge">Problem Solving</span>
-            </div>
-          </div>
+</div>
+
+<!-- SKILLS + TOOLKIT -->
+
+<div class="about-bottom">
+
+    <!-- LEFT -->
+    <div class="skills-section">
+
+        <h3>Core Competencies</h3>
+
+        <div class="skill-list">
+
+            <span class="skill-badge">Data Cleaning</span>
+
+            <span class="skill-badge">EDA</span>
+
+            <span class="skill-badge">SQL Queries</span>
+
+            <span class="skill-badge">Data Visualization</span>
+
+            <span class="skill-badge">Dashboard Creation</span>
+
+            <span class="skill-badge">Statistical Analysis</span>
+
+            <span class="skill-badge">Reporting</span>
+
+            <span class="skill-badge">Problem Solving</span>
+
         </div>
-      </div>
 
-      <div>
-        <h3>&nbsp;</h3>
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="toolkit-section">
+
         <h2>My Toolkit</h2>
-        <div class="skills-section">
-          <div class="skill-category">
+
+        <div class="tool-category">
+
             <h4>Languages & Databases</h4>
-            <div class="skill-list">
-              <span class="skill-badge">Python</span>
-              <span class="skill-badge">SQL (MySQL)</span>
-              <span class="skill-badge">Advanced Excel</span>
-              <span class="skill-badge">PowerPoint</span>
-            </div>
-          </div>
 
-          <div class="skill-category">
+            <div class="tool-list">
+
+                <span class="tool-badge">Python</span>
+
+                <span class="tool-badge">SQL (MySQL)</span>
+
+                <span class="tool-badge">Advanced Excel</span>
+
+                <span class="tool-badge">PowerPoint</span>
+
+            </div>
+
+        </div>
+
+        <div class="tool-category">
+
             <h4>Libraries & Frameworks</h4>
-            <div class="skill-list">
-              <span class="skill-badge">Pandas</span>
-              <span class="skill-badge">NumPy</span>
-              <span class="skill-badge">Matplotlib</span>
-              <span class="skill-badge">Seaborn</span>
-              <span class="skill-badge">Scikit-learn</span>
-            </div>
-          </div>
 
-          <div class="skill-category">
+            <div class="tool-list">
+
+                <span class="tool-badge">Pandas</span>
+
+                <span class="tool-badge">NumPy</span>
+
+                <span class="tool-badge">Matplotlib</span>
+
+                <span class="tool-badge">Seaborn</span>
+
+                <span class="tool-badge">Scikit-learn</span>
+
+            </div>
+
+        </div>
+
+        <div class="tool-category">
+
             <h4>Visualization & BI Tools</h4>
-            <div class="skill-list">
-              <span class="skill-badge">Tableau</span>
-              <span class="skill-badge">Power BI</span>
-              <span class="skill-badge">Excel Dashboards</span>
-              <span class="skill-badge">Data Studio</span>
-            </div>
-          </div>
 
-          <div class="skill-category">
-            <h4>Web & Development</h4>
-            <div class="skill-list">
-              <span class="skill-badge">HTML</span>
-              <span class="skill-badge">CSS</span>
-              <span class="skill-badge">JavaScript</span>
-              <span class="skill-badge">Jupyter Notebook</span>
-              <span class="skill-badge">GitHub</span>
+            <div class="tool-list">
+
+                <span class="tool-badge">Tableau</span>
+
+                <span class="tool-badge">Power BI</span>
+
+                <span class="tool-badge">Excel Dashboards</span>
+
+                <span class="tool-badge">Data Studio</span>
+
             </div>
-          </div>
+
+        </div>
+
+        <div class="tool-category">
+
+            <h4>Web & Development</h4>
+
+            <div class="tool-list">
+
+                <span class="tool-badge">HTML</span>
+
+                <span class="tool-badge">CSS</span>
+
+                <span class="tool-badge">JavaScript</span>
+
+                <span class="tool-badge">Jupyter Notebook</span>
+
+                <span class="tool-badge">GitHub</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 </section>
 
   <!-- EXPERIENCE SECTION -->
@@ -1294,24 +1345,7 @@ padding:10px 18px;
     <div class="experience-container">
       <h2 class="section-title">Experience & Internships</h2>
 
-      <div class="experience-item">
-         <div class="experience-header">
-        <div>
-            <div class="experience-title">Data Analytics Engineer</div>
-            <div class="experience-company">AfterShip Pvt. Ltd. </div>
-            <div class="experience-location"> <i class="fas fa-map-marker-alt"></i>Remote / India</div>
-        </div>
-        <span class="experience-date"> Aug 2026 - Present (Full-time)</span>
-    </div>
-    <ul class="experience-list">
-        <li>Built interactive dashboards and automated business reports using SQL, Power BI, and Excel.</li>
-        <li>Analyzed shipment, order, and customer datasets to identify operational trends and business opportunities.</li>
-        <li>Developed KPI dashboards to monitor delivery performance, customer experience, and logistics metrics.</li>
-        <li>Performed data cleaning, transformation, and validation using SQL and Python to improve reporting accuracy.</li>
-        <li>Collaborated with cross-functional teams to deliver data-driven insights for business decision-making.</li>
-        <li>Optimized reporting workflows, reducing manual reporting effort and improving overall operational efficiency.</li>
-    </ul>
-</div>
+    <div class="experience-item">
         <div class="experience-header">
           <div>
             <div class="experience-title">Data Analyst & MIS Intern</div>
@@ -1329,7 +1363,7 @@ padding:10px 18px;
           <li>Implemented ML models for prediction and classification tasks</li>
         </ul>
       </div>
-
+  
       <div class="experience-item">
         <div class="experience-header">
           <div>
@@ -1461,6 +1495,7 @@ padding:10px 18px;
           <a href="https://github.com/raushan267" target="_blank">github.com/raushan267</a>
         </div>
       </div>
+
 
       <p style="margin-top: 2rem; font-size: 0.95rem;">
         I'm always interested in hearing about new opportunities and interesting projects. Feel free to reach out!
